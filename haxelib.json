@@ -1,0 +1,14 @@
+{
+  "name": "hxnodejs-amqp-connection-manager",
+  "url": "http://github.com/kevinresol/hxnodejs-amqp-connection-manager",
+  "license": "MIT",
+  "tags": ["amqp", "amqplib", "messaging", "messages", "queue", "rabbitmq"],
+  "description": "Externs for the NPM AMQP library amqp-connection-manager",
+  "version": "1.0.0",
+  "releasenote": "",
+  "contributors": ["kevinresol"],
+  "classPath":"src",
+  "dependencies": {
+	  "hxnodejs-amqplib": ""
+  }
+}
