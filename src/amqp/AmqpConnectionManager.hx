@@ -2,6 +2,7 @@ package amqp;
 
 import js.lib.Promise;
 import haxe.Constraints;
+import amqp.AmqpChannel;
 
 @:jsRequire('amqp-connection-manager')
 extern class AmqpConnectionManager {
@@ -13,8 +14,11 @@ extern class AmqpConnectionManager {
 	function once(event:String, callback:Function):Void;
 }
 
-extern class AmqpChannelWrapper extends AmqpConfirmChannel {
+extern class AmqpChannelWrapper extends AmqpChannelBase {
 	function on(event:String, callback:Function):Void;
+	function publish(exchange:String, routingKey:String, content:AmqpBuffer, ?options:AmqpPublishOptions, ?callback:AmqpError->{}->Void):Promise<Bool>;
+	function sendToQueue(queue:String, content:AmqpBuffer, ?options:{}, ?callback:AmqpError->{}->Void):Promise<Bool>;
+	function waitForConfirms():Promise<{}>;
 	function addSetup(setup:Setup):Void;
 	function removeSetup(setup:Setup, teardown:Teardown):Void;
 }
